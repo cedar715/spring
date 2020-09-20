@@ -12,6 +12,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import java.time.LocalDate;
 
+import static org.apache.commons.lang3.RandomStringUtils.randomAlphabetic;
 import static org.assertj.core.api.Assertions.assertThat;
 
 // No annotations coz we don't want the application context to be initialized
@@ -28,7 +29,7 @@ public class ProjectServiceUnitTest {
 
     @Test
     public void whenSavingProject_thenOk() {
-        Project project = new Project(6L, "UT", LocalDate.now());
+        Project project = new Project(randomAlphabetic(4), LocalDate.now());
         Mockito.when(repository.save(project)).thenReturn(project);
 
         Project savedProject = service.save(project);

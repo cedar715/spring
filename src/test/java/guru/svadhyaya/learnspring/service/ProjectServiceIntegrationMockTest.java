@@ -12,6 +12,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.time.LocalDate;
 
+import static org.apache.commons.lang3.RandomStringUtils.randomAlphabetic;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
@@ -29,7 +30,7 @@ public class ProjectServiceIntegrationMockTest {
     public void whenSavingProject_thenOk() {
         assertThat(mockProjectService).isNotNull();
 
-        Project project = new Project(6L, "TU", LocalDate.now());
+        Project project = new Project(randomAlphabetic(4), LocalDate.now());
         Mockito.when(mockProjectService.save(project)).thenReturn(project);
 
         IProjectService projectSvcFromBean = context.getBean(IProjectService.class);

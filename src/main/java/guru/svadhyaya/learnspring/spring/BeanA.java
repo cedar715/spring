@@ -1,6 +1,8 @@
 package guru.svadhyaya.learnspring.spring;
 
-public class BeanA {
+import org.springframework.boot.CommandLineRunner;
+
+public class BeanA implements CommandLineRunner {
 
     private String profile;
 
@@ -13,5 +15,10 @@ public class BeanA {
         return "BeanA{" +
                 "profile='" + profile + '\'' +
                 '}';
+    }
+
+    @Override
+    public void run(String... args) throws Exception {
+        System.out.println("BeanA.run");
     }
 }

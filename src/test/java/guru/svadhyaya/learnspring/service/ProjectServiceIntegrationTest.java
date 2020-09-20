@@ -9,6 +9,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.time.LocalDate;
 
+import static org.apache.commons.lang3.RandomStringUtils.randomAlphabetic;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
@@ -21,7 +22,7 @@ public class ProjectServiceIntegrationTest {
     @Test
     public void whenSavingProject_thenOk() {
         assertThat(projectService).isNotNull();
-        Project savedProject = projectService.save(new Project(6L, "TU", LocalDate.now()));
+        Project savedProject = projectService.save(new Project(randomAlphabetic(4), LocalDate.now()));
         assertThat(savedProject).isNotNull();
     }
 }

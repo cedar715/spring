@@ -2,6 +2,7 @@ package guru.svadhyaya.learnspring.persistence.model;
 
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.Random;
 
 public class Project {
 
@@ -25,6 +26,10 @@ public class Project {
         this.id = id;
         this.name = name;
         this.dateCreated = dateCreated;
+    }
+
+    public Project(String name, LocalDate dateCreated) {
+        this(new Random().nextLong(), name, dateCreated);
     }
 
     public Project(Project project) {
