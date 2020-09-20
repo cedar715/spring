@@ -1,10 +1,9 @@
 package guru.svadhyaya.learnspring.persistence.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 public class Project {
@@ -15,17 +14,13 @@ public class Project {
 
     private String name;
 
-    public String getInternalId() {
-        return internalId;
-    }
-
-    public void setInternalId(String internalId) {
-        this.internalId = internalId;
-    }
-
     private String internalId;
 
     private LocalDate dateCreated;
+
+//    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+//    @JoinColumn(name = "project_id")
+//    private Set<Task> tasks;
 
     public Project(String name, LocalDate dateCreated) {
         this.name = name;
@@ -33,6 +28,15 @@ public class Project {
     }
 
     public Project() {
+    }
+
+
+    public String getInternalId() {
+        return internalId;
+    }
+
+    public void setInternalId(String internalId) {
+        this.internalId = internalId;
     }
 
     @Override
