@@ -42,7 +42,7 @@ public class TaskRepositoryIntegrationTest {
 //        System.out.println(retrievedTasks);
 //        assertThat(retrievedTasks).contains(task3, task4);
 
-        Optional<Task> byId = taskRepository.findById(save.getId());
-        System.out.println(byId.get());
+//        Optional<Task> byId = taskRepository.findById(save.getId());
+//        System.out.println(byId.get());
     }
 }
