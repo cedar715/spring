@@ -1,11 +1,16 @@
 package guru.svadhyaya.learnspring.persistence.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.time.LocalDate;
 import java.util.Objects;
-import java.util.Random;
 
+@Entity
 public class Project {
 
+    @Id
+    @GeneratedValue
     private Long id;
 
     private String name;
@@ -22,18 +27,12 @@ public class Project {
 
     private LocalDate dateCreated;
 
-    public Project(Long id, String name, LocalDate dateCreated) {
-        this.id = id;
+    public Project(String name, LocalDate dateCreated) {
         this.name = name;
         this.dateCreated = dateCreated;
     }
 
-    public Project(String name, LocalDate dateCreated) {
-        this(new Random().nextLong(), name, dateCreated);
-    }
-
-    public Project(Project project) {
-        this(project.getId(), project.getName(), project.dateCreated);
+    public Project() {
     }
 
     @Override
